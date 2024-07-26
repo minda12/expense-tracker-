@@ -1,24 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './Home';
+import ContextProvider from './ContextProvider';
+import Welcome from './Welcome';
+import UpdateProfilePage from './UpdateProfilePage'; // Ensure correct path
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { useContext } from 'react';
+import Context from './Context';
+
+
+function AppContent() {
+  const ctx = useContext(Context);
+
+  return (
+    <div className="App">
+      {!ctx.Token ? <Home /> : <Welcome />}
+      {console.log("AppContent.js", ctx)}
+    </div>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ContextProvider>
+        <Switch>
+          <Route path="/" exact component={AppContent} />
+          <Route path="/UpdateProfilePage" component={UpdateProfilePage}/>
+        </Switch>
+      </ContextProvider>
+    </Router>
   );
 }
 

@@ -1,0 +1,30 @@
+.containerr{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display:flex;
+    justify-content: space-around;
+    background-color: #ffefef
+}
+
+.welcome{
+
+    font-style: italic;
+    font-size: xx-large;
+    background-color: #ffbcbc
+}
+.profile-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: center;
+    color:rgb(255, 255, 255);
+    padding: 10px;
+    background-color: rgb(99, 92, 92);
+
+}
+
+.containerr .profile-info button{
+
+   cursor:pointer
+}
